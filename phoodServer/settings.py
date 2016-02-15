@@ -85,6 +85,7 @@ DATABASES = {
 CLARIFAI_CLIENT_SECRET = os.environ.get('CLARIFAI_CLIENT_SECRET')
 CLARIFAI_CLIENT_ID = os.environ.get('CLARIFAI_CLIENT_ID')
 USDA_API_KEY = os.environ.get("USDA_API_KEY")
+METAMIND_API_KEY = os.environ.get("METAMIND_API_KEY")
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -123,9 +124,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "staticRoot")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "mediaRoot")
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
+)
+
+MEDIAFILES_DIRS = (
+    os.path.join(BASE_DIR, "media"),
 )
