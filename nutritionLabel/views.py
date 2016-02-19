@@ -283,14 +283,14 @@ def image (request):
 		# csrftoken = client.cookies['csrf']
 		#clarifai vision api headers with image url
 		headers = {'Authorization':'Bearer {}'.format(token.json()['access_token'])}
-		files = {'encoded_image':'@/Users/prabhaav/phood!/mediaRoot/images/image.jpeg'}
+		files = {'encoded_image':open('/Users/prabhaav/phood!/mediaRoot/images/image.jpeg')}
 		# data = {csrfmiddlewaretoken: csrftoken}
 		r = requests.post('https://api.clarifai.com/v1/tag/', headers=headers, files=files)
 		print r.json()
 		#guesses and probabilities for items found
-		#guesses = set(r.json()['results'][0]['result']['tag']['classes'])
+		guesses = set(r.json()['results'][0]['result']['tag']['classes'])
 		#print(guesses)
-		#probs = r.json()['results'][0]['result']['tag']['probs']
+		probs = r.json()['results'][0]['result']['tag']['probs']
 		#print(probs)
 
 		#clean up guesses with known valid fruits
