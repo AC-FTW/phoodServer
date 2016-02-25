@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
     <form action="/nutrition/label/" method="GET">
 		  <input type="text" name="q">
       <input type="submit" value="Submit Url to Clarifai"/>
@@ -12,9 +11,15 @@
       <input type="submit" value="Submit Url to Metamind"/>
     </form>
 
-    <form action="/nutrition/image/" method="POST">
+    <form action="/nutrition/label/" method="POST">
 		  <!-- <input type="text" name="q"> -->
 		  {% csrf_token %}
       <input type="submit" value="Submit Img to Clarifai"/>
+    </form>
+
+    <form action="/nutrition/label/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="myFile">
+      <button>Send the file</button>
     </form>
 {% endblock %}
